@@ -47,17 +47,13 @@ fun main(){
         println("Producto encontrado: ${it.nombre} (Stock actual: ${it.Stock})")
 
         println("Ingresa la cantidad a comprar: ")
-        // Convertimos el texto ingresado a un número entero de forma segura
         val cantidadComprar = readln().toIntOrNull() ?: 0
 
-        // Validamos si hay suficiente stock disponible
-        if (it.Stock > 0) {
-            // Restamos las unidades del stock del producto
-            it.Stock -= cantidadComprar
 
-            // Aplicamos RUN sobre el producto encontrado para generar el mensaje final
+        if (it.Stock > 0) {
+            it.Stock -= cantidadComprar
             val venta = it.run {
-                // Al ser la última línea de run, este String completo es lo que se guarda en 'venta'
+
                 "Venta de $cantidadComprar unidades del articulo $nombre realizada con exito.\nStock restante: $Stock"
             }
 
@@ -70,27 +66,5 @@ fun main(){
 
     } ?: println("Producto no encontrado, intenta con otro código.")
 
-    //
-    val productoEncontrado2 = productos.find{
-        it.id.equals(idBuscar)
-    }
 
-        //let dejar, permitir
-        productoEncontrado2?.let {
-            println("Producto encontrado ${it.nombre}")
-        }?: println("Producto no encontrado, intenta con otro nombre")
-
-
-        println("Ingresa el cantidad a comprar: ")
-        val cantidadComprar = readln().toIntOrNull()?: 0
-
-        if(it.Stock > 0){
-            it.Stock
-
-        val venta = productos.run {
-            "Venta de $cantidadComprar unidades del articulo ${productoEncontrado.nombre} realizada con exito "
-            "Stock restante ${productoEncontrado.Stock}"
-        }
-
-    }
 }
